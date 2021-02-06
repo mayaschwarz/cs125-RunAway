@@ -32,7 +32,7 @@ class SignUp: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+  
     @IBAction func signUp(_ sender: UIButton) {
         let user = PFUser()
         user.username = signUpUsernameField.text
@@ -50,7 +50,7 @@ class SignUp: UIViewController {
         }
     }
     @IBOutlet weak var signUp: UIButton!
-    
+
     func displayErrorMessage(message:String) {
         let alertView = UIAlertController(title: "Error!", message: message, preferredStyle: .alert)
         let OKAction = UIAlertAction(title: "OK", style: .default) { (action:UIAlertAction) in

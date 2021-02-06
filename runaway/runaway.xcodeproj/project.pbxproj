@@ -3,11 +3,15 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		4F6C7E4AFCE4A479B3121DA2 /* Pods_runaway.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 619025C6DF543CB792AA41A3 /* Pods_runaway.framework */; };
+		7E2FEAE125CE6DAF009A7CE8 /* LogIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E2FEAE025CE6DAF009A7CE8 /* LogIn.swift */; };
+		7E2FEAE525CE706D009A7CE8 /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E2FEAE425CE706D009A7CE8 /* SignUp.swift */; };
+		7E9E493425CDCB57006AE74F /* LoggedInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9E493325CDCB57006AE74F /* LoggedInViewController.swift */; };
+		7E9E493725CDD292006AE74F /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9E493625CDD292006AE74F /* Extensions.swift */; };
 		ED0EC26725C56D93006382DC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0EC26625C56D93006382DC /* AppDelegate.swift */; };
 		ED0EC26925C56D93006382DC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0EC26825C56D93006382DC /* SceneDelegate.swift */; };
 		ED0EC26B25C56D93006382DC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0EC26A25C56D93006382DC /* ViewController.swift */; };
@@ -20,6 +24,11 @@
 		2E2A03C3753345ECFAB7471F /* Pods-runaway.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-runaway.debug.xcconfig"; path = "Target Support Files/Pods-runaway/Pods-runaway.debug.xcconfig"; sourceTree = "<group>"; };
 		5E939A6900CBE90AB578FBD9 /* Pods-runaway.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-runaway.release.xcconfig"; path = "Target Support Files/Pods-runaway/Pods-runaway.release.xcconfig"; sourceTree = "<group>"; };
 		619025C6DF543CB792AA41A3 /* Pods_runaway.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_runaway.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7E2FEAE025CE6DAF009A7CE8 /* LogIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogIn.swift; sourceTree = "<group>"; };
+		7E2FEAE425CE706D009A7CE8 /* SignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp.swift; sourceTree = "<group>"; };
+		7E9E492725CD2FA3006AE74F /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
+		7E9E493325CDCB57006AE74F /* LoggedInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggedInViewController.swift; sourceTree = "<group>"; };
+		7E9E493625CDD292006AE74F /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		ED0EC26325C56D93006382DC /* runaway.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = runaway.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED0EC26625C56D93006382DC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ED0EC26825C56D93006382DC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -48,7 +57,6 @@
 				2E2A03C3753345ECFAB7471F /* Pods-runaway.debug.xcconfig */,
 				5E939A6900CBE90AB578FBD9 /* Pods-runaway.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -73,10 +81,14 @@
 		ED0EC26525C56D93006382DC /* runaway */ = {
 			isa = PBXGroup;
 			children = (
+				7E2FEAE025CE6DAF009A7CE8 /* LogIn.swift */,
+				7E2FEAE425CE706D009A7CE8 /* SignUp.swift */,
 				ED0EC26625C56D93006382DC /* AppDelegate.swift */,
 				ED0EC26825C56D93006382DC /* SceneDelegate.swift */,
 				ED0EC26A25C56D93006382DC /* ViewController.swift */,
+				7E9E493625CDD292006AE74F /* Extensions.swift */,
 				ED0EC26C25C56D93006382DC /* Main.storyboard */,
+				7E9E493325CDCB57006AE74F /* LoggedInViewController.swift */,
 				ED0EC26F25C56D94006382DC /* Assets.xcassets */,
 				ED0EC27125C56D94006382DC /* LaunchScreen.storyboard */,
 				ED0EC27425C56D94006382DC /* Info.plist */,
@@ -88,6 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				619025C6DF543CB792AA41A3 /* Pods_runaway.framework */,
+				7E9E492725CD2FA3006AE74F /* Header.h */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -103,7 +116,7 @@
 				ED0EC25F25C56D93006382DC /* Sources */,
 				ED0EC26025C56D93006382DC /* Frameworks */,
 				ED0EC26125C56D93006382DC /* Resources */,
-				FF7042083B6415140E67A223 /* [CP] Embed Pods Frameworks */,
+				0DEC97E8AC844BDC6582ACE5 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -161,6 +174,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		0DEC97E8AC844BDC6582ACE5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-runaway/Pods-runaway-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-runaway/Pods-runaway-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-runaway/Pods-runaway-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		B5650C77D9BAF6EC6C9992E2 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -183,23 +213,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		FF7042083B6415140E67A223 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-runaway/Pods-runaway-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-runaway/Pods-runaway-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-runaway/Pods-runaway-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -207,9 +220,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E2FEAE525CE706D009A7CE8 /* SignUp.swift in Sources */,
+				7E9E493725CDD292006AE74F /* Extensions.swift in Sources */,
+				7E2FEAE125CE6DAF009A7CE8 /* LogIn.swift in Sources */,
 				ED0EC26B25C56D93006382DC /* ViewController.swift in Sources */,
 				ED0EC26725C56D93006382DC /* AppDelegate.swift in Sources */,
 				ED0EC26925C56D93006382DC /* SceneDelegate.swift in Sources */,
+				7E9E493425CDCB57006AE74F /* LoggedInViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -356,11 +373,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7T5P9FU2SD;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(PROJECT_DIR)",
+					"$(inherited)",
+				);
 				INFOPLIST_FILE = runaway/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				NEW_SETTING = "";
 				PRODUCT_BUNDLE_IDENTIFIER = viniprjs.runaway;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -375,11 +397,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7T5P9FU2SD;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(PROJECT_DIR)",
+					"$(inherited)",
+				);
 				INFOPLIST_FILE = runaway/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				NEW_SETTING = "";
 				PRODUCT_BUNDLE_IDENTIFIER = viniprjs.runaway;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

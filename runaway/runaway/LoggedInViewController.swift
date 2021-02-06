@@ -7,3 +7,9 @@
 //
 
 import Foundation
+import Parse
+import UIKit
+
+class LoggedInViewController: UIViewController {
+
+}

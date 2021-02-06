@@ -10,6 +10,8 @@ import UIKit
 import Parse
 
 
+
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -24,9 +26,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         Parse.initialize(with: parseConfig)
         
-        
+        saveInstallationObject()
         
         return true
+    }
+    
+    func saveInstallationObject(){
+            if let installation = PFInstallation.current(){
+                installation.saveInBackground {
+                    (success: Bool, error: Error?) in
+                    if (success) {
+                        print("You have successfully connected your app to Back4App!")
+                    } else {
+                        if let myError = error{
+                            print(myError.localizedDescription)
+                        }else{
+                            print("Unknown error")
+                        }
+                    }
+                }
+            }
     }
 
     // MARK: UISceneSession Lifecycle

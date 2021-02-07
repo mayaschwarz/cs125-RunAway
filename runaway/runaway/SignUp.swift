@@ -10,43 +10,66 @@ import Foundation
 import UIKit
 import Parse
 
-class SignUp: UIViewController {
+class SignUp: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
+    @IBOutlet weak var signUpFirstNameField: UITextField!
+    // we will use emails for usernames because they are unique
     @IBOutlet weak var signUpUsernameField: UITextField!
     @IBOutlet weak var signUpPasswordField: UITextField!
+    @IBOutlet weak var signUpBirthdayField: UIDatePicker!
+    @IBOutlet weak var signUpGenderField: UIPickerView!
+    var GenderData: [String] = [String]()
+    @IBOutlet weak var signUpHeightField: UITextField!
+    @IBOutlet weak var signUpWeightField: UITextField!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        signUpFirstNameField.text = ""
         signUpUsernameField.text = ""
         signUpPasswordField.text = ""
-    }
-
-    override func viewDidAppear(_ animated: Bool) {
-        let currentUser = PFUser.current()
-//        if currentUser != nil {
-//            loadHomeScreen()
-//        }
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat =  "HH:mm"
+        let date = dateFormatter.date(from: "17:00")
+        signUpBirthdayField.date = date!
+        signUpGenderField.delegate = self
+        signUpGenderField.dataSource = self
+        GenderData = ["Male", "Female", "Non-Binary"]
+        signUpGenderField.selectRow(0, inComponent: 0, animated: true)
+        signUpHeightField.text = ""
+        signUpWeightField.text = ""
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+        
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return GenderData.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return GenderData[row]
+    }
   
     @IBAction func signUp(_ sender: UIButton) {
         let user = PFUser()
+        user["firstname"] = signUpFirstNameField.text
         user.username = signUpUsernameField.text
         user.password = signUpPasswordField.text
+        user["birthday"] = signUpBirthdayField.date
+        user["gender"] = GenderData[signUpGenderField.selectedRow(inComponent: 0)]
+        user["height"] = signUpHeightField.text
+        user["weight"] = signUpWeightField.text
+        
         let sv = UIViewController.displaySpinner(onView: self.view)
         user.signUpInBackground { (success, error) in
             UIViewController.removeSpinner(spinner: sv)
-//            if success{
-//                self.loadHomeScreen()
-//            }else{
-//                if let descrip = error?.localizedDescription{
-//                    self.displayErrorMessage(message: descrip)
-//                }
-//            }
         }
     }
     @IBOutlet weak var signUp: UIButton!

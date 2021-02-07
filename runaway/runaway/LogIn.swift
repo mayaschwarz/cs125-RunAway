@@ -13,29 +13,23 @@ import Parse
 class LogIn: UIViewController {
     @IBOutlet weak var signInUsernameField: UITextField!
     @IBOutlet weak var signInPasswordField: UITextField!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         signInUsernameField.text = ""
         signInPasswordField.text = ""
     }
-
-    override func viewDidAppear(_ animated: Bool) {
-        let currentUser = PFUser.current()
-        if currentUser != nil {
-            loadHomeScreen()
-        }
-    }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     func loadHomeScreen(){
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-//        let loggedInViewController = storyBoard.instantiateViewController(withIdentifier: "LoggedInViewController") as! LoggedInViewController
-//        self.present(loggedInViewController, animated: true, completion: nil)
+        let Home = storyBoard.instantiateViewController(withIdentifier: "Home") as! Home
+        self.present(Home, animated: true, completion: nil)
     }
 
     @IBAction func signIn(_ sender: UIButton) {

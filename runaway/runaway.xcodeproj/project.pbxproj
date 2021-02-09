@@ -11,6 +11,7 @@
 		7E25F3B925CFB9AD00CB1BDC /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E25F3B825CFB9AD00CB1BDC /* Home.swift */; };
 		7E2FEAE125CE6DAF009A7CE8 /* LogIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E2FEAE025CE6DAF009A7CE8 /* LogIn.swift */; };
 		7E2FEAE525CE706D009A7CE8 /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E2FEAE425CE706D009A7CE8 /* SignUp.swift */; };
+		7E8784CB25D30793007AB580 /* RunStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E8784CA25D30793007AB580 /* RunStatus.swift */; };
 		7E9E493725CDD292006AE74F /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9E493625CDD292006AE74F /* Extensions.swift */; };
 		ED0EC26725C56D93006382DC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0EC26625C56D93006382DC /* AppDelegate.swift */; };
 		ED0EC26925C56D93006382DC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0EC26825C56D93006382DC /* SceneDelegate.swift */; };
@@ -27,6 +28,7 @@
 		7E25F3B825CFB9AD00CB1BDC /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		7E2FEAE025CE6DAF009A7CE8 /* LogIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogIn.swift; sourceTree = "<group>"; };
 		7E2FEAE425CE706D009A7CE8 /* SignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp.swift; sourceTree = "<group>"; };
+		7E8784CA25D30793007AB580 /* RunStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunStatus.swift; sourceTree = "<group>"; };
 		7E9E492725CD2FA3006AE74F /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
 		7E9E493625CDD292006AE74F /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		ED0EC26325C56D93006382DC /* runaway.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = runaway.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -89,6 +91,7 @@
 				ED0EC26A25C56D93006382DC /* ViewController.swift */,
 				7E9E493625CDD292006AE74F /* Extensions.swift */,
 				ED0EC26C25C56D93006382DC /* Main.storyboard */,
+				7E8784CA25D30793007AB580 /* RunStatus.swift */,
 				ED0EC26F25C56D94006382DC /* Assets.xcassets */,
 				ED0EC27425C56D94006382DC /* Info.plist */,
 				EDE812EA25D248160072CA16 /* myTabBar.swift */,
@@ -222,6 +225,7 @@
 				7E2FEAE525CE706D009A7CE8 /* SignUp.swift in Sources */,
 				7E9E493725CDD292006AE74F /* Extensions.swift in Sources */,
 				7E2FEAE125CE6DAF009A7CE8 /* LogIn.swift in Sources */,
+				7E8784CB25D30793007AB580 /* RunStatus.swift in Sources */,
 				EDE812EB25D248160072CA16 /* myTabBar.swift in Sources */,
 				ED0EC26B25C56D93006382DC /* ViewController.swift in Sources */,
 				ED0EC26725C56D93006382DC /* AppDelegate.swift in Sources */,

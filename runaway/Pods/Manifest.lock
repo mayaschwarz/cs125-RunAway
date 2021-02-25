@@ -4,19 +4,23 @@ PODS:
     - Parse/Core (= 1.19.1)
   - Parse/Core (1.19.1):
     - Bolts/Tasks (= 1.9.1)
+  - SAConfettiView (0.1.8)
 
 DEPENDENCIES:
   - Parse
+  - SAConfettiView
 
 SPEC REPOS:
   trunk:
     - Bolts
     - Parse
+    - SAConfettiView
 
 SPEC CHECKSUMS:
   Bolts: 8c1e8aab2f603387b8b9924f57d1d64f43d3ffdc
   Parse: e40fdb9c7d665823b7fe9865949cac9a53eb2ce7
+  SAConfettiView: c87031a2280659261b730fce3669fb10e73636ee
 
-PODFILE CHECKSUM: 473f5508dc60a5f0ce2fec2b47360836d14bfb71
+PODFILE CHECKSUM: fa6a2a52f239c3ea19688ba41591da8ec224c025
 
 COCOAPODS: 1.10.1

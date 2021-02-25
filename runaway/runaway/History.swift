@@ -43,11 +43,6 @@ class History:UIViewController
         dist+=" miles run"
         distCompleted.text=dist
         
-        
-        
-       
-        
-
     }
 
     @IBAction func logout(_ sender: Any) {

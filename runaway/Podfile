@@ -7,5 +7,6 @@ target 'runaway' do
 
   # Pods for runaway
 	pod 'Parse'
+	pod 'SAConfettiView'
 
 end

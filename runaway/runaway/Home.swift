@@ -21,19 +21,19 @@ class Home: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
     @IBOutlet weak var temperature: UILabel!
     @IBOutlet weak var weatherSummary: UILabel!
     @IBOutlet weak var map: MKMapView!
-    @IBOutlet weak var routeDistance: UILabel!
-    @IBOutlet weak var whiteRect: UIImageView!
-    @IBOutlet weak var yellowRect: UIImageView!
+//    @IBOutlet weak var routeDistance: UILabel!
+//    @IBOutlet weak var whiteRect: UIImageView!
+//    @IBOutlet weak var yellowRect: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         map.delegate = self
         setUpLocation()
         
-        whiteRect.layer.cornerRadius = 15.0
-        whiteRect.clipsToBounds = true
-        yellowRect.layer.cornerRadius = 15.0
-        yellowRect.clipsToBounds = true
+//        whiteRect.layer.cornerRadius = 15.0
+//        whiteRect.clipsToBounds = true
+//        yellowRect.layer.cornerRadius = 15.0
+//        yellowRect.clipsToBounds = true
     }
     
     

@@ -11,43 +11,64 @@ import Parse
 
 
 // Not sure if this is needed? made it just in case
-class User {
-    var objectId: String
-    var gender: String
-    var emailVerified: Bool
-    var height: String
-    var weight: String
-    var firstName: String
-    var email: String
-    var password: String
-    var birthday: Date
-    var experienceLevel: String
-    var difficultyLevel: Int
-    var listOfRuns: [Run]
-    var listOfRatings: [Rating]
+class User : PFUser  {
+    //var gender: String = ""
+    //var emailVerified: Bool = false
+    //var height: String = ""
+    //var weight: String = ""
+    //var birthday: NSDate = NSDate()
+    //var objectId: String
+    @NSManaged var firstName: String
+    @NSManaged var experienceLevel: String
+    @NSManaged var difficultyTier: Int
+    @NSManaged var totalRuns: Int
+    @NSManaged var totalTime: TimeInterval
+    @NSManaged var totalMiles: Double
+    @NSManaged var listOfRuns: [Run]
+    //@NSManaged var listOfRatings: [Rating]
     
-    init(objectId: String, gender: String, emailVerified: Bool, height: String, weight: String, firstName: String, email: String, password:String, birthday: Date, experienceLevel: String, difficultyLevel: Int) {
-        
-        self.objectId = objectId
-        self.gender = gender
-        self.emailVerified = emailVerified
-        self.height = height
-        self.weight = weight
-        self.firstName = firstName
-        self.email = email
-        self.password = password
-        self.birthday = birthday
-        self.experienceLevel = experienceLevel
-        self.difficultyLevel = difficultyLevel
-        self.listOfRuns = []
-        self.listOfRatings = []
+    override init(){
+        super.init()
     }
     
-    func recordRun(run: Run){
-        listOfRuns.append(run)
+    init(user: PFUser) {
+        super.init()
+        //self.objectId = user.objectId!
+        self.firstName = user["firstname"] as! String
+        self.experienceLevel = user["experienceLevel"] as! String
+        self.difficultyTier = user["difficultyLevel"] as! Int
+        self.listOfRuns = user["listOfRuns"] as! [Run]
+        self.totalRuns = user["totalRuns"] as! Int
+        self.totalTime = user["totalTime"] as! TimeInterval
+        self.totalMiles = user["totalMiles"] as! Double
+        //self.listOfRatings = user["listOfRatings"] as! [Rating]
+        print(self)
     }
-    func recordRating(rating: Rating){
-        listOfRatings.append(rating)
+    
+    func updateRecords(run: Run, timeInterval: TimeInterval, distanceInMiles: Double){
+        self.add(run, forKey: "listOfRuns")
+        totalRuns += 1
+        totalTime += timeInterval
+        totalMiles += distanceInMiles
+        self.saveInBackground {
+            (success: Bool, error: Error?) in
+            if (success) {
+              print("Successfully updated USER records in database.")
+            } else {
+              print("Error: Could not update USER records in database.")
+            }
+          }
+    }
+    func giveRating(rating: Rating){
+        //listOfRatings.append(rating)
+    }
+    func getListOfRuns() -> [Run] {
+        var l : [Run] = []
+        for run in listOfRuns{
+            let r = Run(objectId: run.objectId!)
+            l.append(r)
+        }
+        return l
     }
         
 }

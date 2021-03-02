@@ -42,9 +42,9 @@
 		ED20AE5425DC5C5D00B3BFB8 /* StartRun.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED20AE5325DC5C5D00B3BFB8 /* StartRun.swift */; };
 		ED68387725D752AE00D5A561 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED68387625D752AE00D5A561 /* Route.swift */; };
 		ED68387925D7530900D5A561 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED68387825D7530900D5A561 /* User.swift */; };
-		EDA6984C25D8AEA60024A2D9 /* SearchRun.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA6984B25D8AEA60024A2D9 /* SearchRun.swift */; };
 		EDE06A2F25E1ACB500ED7648 /* Run.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE06A2E25E1ACB500ED7648 /* Run.swift */; };
 		EDE06A3125E1B9F000ED7648 /* Rating.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE06A3025E1B9F000ED7648 /* Rating.swift */; };
+		EDE283F625ECC90500217B2A /* Segments.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE283F525ECC90500217B2A /* Segments.swift */; };
 		EDE812EB25D248160072CA16 /* myTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE812EA25D248160072CA16 /* myTabBar.swift */; };
 /* End PBXBuildFile section */
 
@@ -89,9 +89,9 @@
 		ED20AE5325DC5C5D00B3BFB8 /* StartRun.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartRun.swift; sourceTree = "<group>"; };
 		ED68387625D752AE00D5A561 /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
 		ED68387825D7530900D5A561 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		EDA6984B25D8AEA60024A2D9 /* SearchRun.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRun.swift; sourceTree = "<group>"; };
 		EDE06A2E25E1ACB500ED7648 /* Run.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Run.swift; sourceTree = "<group>"; };
 		EDE06A3025E1B9F000ED7648 /* Rating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rating.swift; sourceTree = "<group>"; };
+		EDE283F525ECC90500217B2A /* Segments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Segments.swift; sourceTree = "<group>"; };
 		EDE812EA25D248160072CA16 /* myTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myTabBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -168,7 +168,6 @@
 				7E2FEAE025CE6DAF009A7CE8 /* LogIn.swift */,
 				7E25F3B825CFB9AD00CB1BDC /* Home.swift */,
 				7E2FEAE425CE706D009A7CE8 /* SignUp.swift */,
-				EDA6984B25D8AEA60024A2D9 /* SearchRun.swift */,
 				ED0EC26625C56D93006382DC /* AppDelegate.swift */,
 				ED0EC26825C56D93006382DC /* SceneDelegate.swift */,
 				ED0EC26A25C56D93006382DC /* ViewController.swift */,
@@ -180,6 +179,7 @@
 				ED0EC27425C56D94006382DC /* Info.plist */,
 				EDE812EA25D248160072CA16 /* myTabBar.swift */,
 				ED20AE5125DAAC1200B3BFB8 /* History.swift */,
+				EDE283F525ECC90500217B2A /* Segments.swift */,
 				ED20AE5325DC5C5D00B3BFB8 /* StartRun.swift */,
 			);
 			path = runaway;
@@ -348,7 +348,6 @@
 				7E2FEAE125CE6DAF009A7CE8 /* LogIn.swift in Sources */,
 				ED20AE5425DC5C5D00B3BFB8 /* StartRun.swift in Sources */,
 				7E8784CB25D30793007AB580 /* RunStatus.swift in Sources */,
-				EDA6984C25D8AEA60024A2D9 /* SearchRun.swift in Sources */,
 				EDE812EB25D248160072CA16 /* myTabBar.swift in Sources */,
 				7E428D1525E74F3F00ADA801 /* Congrats.swift in Sources */,
 				ED0EC26B25C56D93006382DC /* ViewController.swift in Sources */,
@@ -357,6 +356,7 @@
 				ED20AE5225DAAC1200B3BFB8 /* History.swift in Sources */,
 				EDE06A3125E1B9F000ED7648 /* Rating.swift in Sources */,
 				7E25F3B925CFB9AD00CB1BDC /* Home.swift in Sources */,
+				EDE283F625ECC90500217B2A /* Segments.swift in Sources */,
 				EDE06A2F25E1ACB500ED7648 /* Run.swift in Sources */,
 				ED68387925D7530900D5A561 /* User.swift in Sources */,
 			);

@@ -18,6 +18,7 @@ class History:UIViewController
     }
     
     
+    @IBOutlet weak var runTable: UITableView!
     @IBOutlet weak var username: UILabel!
     @IBOutlet weak var runsCompleted: UILabel!
     @IBOutlet weak var timeCompleted: UILabel!
@@ -25,23 +26,27 @@ class History:UIViewController
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        var currentUser = PFUser.current()
+        let currentUser = User(user: PFUser.current()!)
+        let listOfruns = currentUser["listOfRuns"] as! [Run]
+//        for run in listOfruns{
+//            let r = Run(objectId: run.objectId!)
+//
+//        }
+        
         //set up greeting
         var greeting="Hello "
-        greeting+=currentUser?["firstname"] as! String
+        greeting+=currentUser.firstName
         username.text=greeting
+        
         //runs
-        var runs=String(currentUser?["totalRuns"] as! Int)
-        runs+=" runs completed"
-        runsCompleted.text=runs
+        runsCompleted.text = String(format: "%d  completed", currentUser.totalRuns)
         
-        var time=String(currentUser?["totalTime"] as! Int)
-        time+=" minutes total"
-        timeCompleted.text=time
+        //time
+        let seconds = currentUser.totalTime
+        timeCompleted.text = String(format: "%.1f  seconds", seconds)
         
-        var dist=String(currentUser?["totalMiles"] as! Int)
-        dist+=" miles run"
-        distCompleted.text=dist
+        //distance
+        distCompleted.text = String(format: "%.2f  miles", currentUser.totalMiles)
         
     }
 

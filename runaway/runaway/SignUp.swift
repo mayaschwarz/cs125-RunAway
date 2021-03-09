@@ -113,12 +113,18 @@ class SignUp: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, AS
         default:
             user["difficultyLevel"] = 0
         }
+        
+        //if (user["firstname"] as! String == ""){
+        //    self.displayErrorMessage(message: ("Please enter your name!"))
+        //}
+        
         self.presentStrava()
         let sv = UIViewController.displaySpinner(onView: self.view)
         user.signUpInBackground { (success, error) in
             UIViewController.removeSpinner(spinner: sv)
         }
     }
+    
     
     private func presentStrava(){
         

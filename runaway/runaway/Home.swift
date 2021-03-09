@@ -15,25 +15,22 @@ import MapKit
 
 class Home: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
 
+    @IBOutlet weak var homeMotivationalPhrase: UILabel!
+    let homeMotivationalPhrasesBank = ["Practice makes perfect!", "Don't give up!", "Today is the first step!", "Believe in yourself!", "Never quit!", "Life is a journey not a race", "You get what you give", "No pressure, no diamonds", "Prove them wrong", "Doubt kills more dreams than failure ever will", "Dreams don't work unless you do", "The obstacle is the path", "The best revenge is massive success", "Today is your day!"]
     let LocationManager = CLLocationManager()
     static var currentLocation: CLLocation?
     @IBOutlet weak var city: UILabel!
     @IBOutlet weak var temperature: UILabel!
     @IBOutlet weak var weatherSummary: UILabel!
     @IBOutlet weak var map: MKMapView!
-//    @IBOutlet weak var routeDistance: UILabel!
-//    @IBOutlet weak var whiteRect: UIImageView!
-//    @IBOutlet weak var yellowRect: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         map.delegate = self
         setUpLocation()
         
-//        whiteRect.layer.cornerRadius = 15.0
-//        whiteRect.clipsToBounds = true
-//        yellowRect.layer.cornerRadius = 15.0
-//        yellowRect.clipsToBounds = true
+        let homeRandomNumber = Int.random(in: 0...homeMotivationalPhrasesBank.count) - 1
+        homeMotivationalPhrase.text = homeMotivationalPhrasesBank[homeRandomNumber]
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

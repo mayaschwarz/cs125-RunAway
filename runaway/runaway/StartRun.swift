@@ -243,7 +243,7 @@ class StartRun: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
             self.map.isHidden = true
             self.prevButton.isHidden = true
             self.nextButton.isHidden = true
-            self.routeNameLabel.text = "no routes"
+            self.routeNameLabel.text = "no routes to show, please select a distance!"
             self.routeDistanceLabel.isHidden = true
             self.startButton.isHidden = true
             return

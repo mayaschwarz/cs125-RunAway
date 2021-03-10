@@ -30,7 +30,6 @@ class Home: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
     
     @IBOutlet weak var startRunBtn: UIButton!
     
-  //  @IBOutlet weak var startRunBtn: UILabel!
     @IBOutlet weak var basisLabel: UILabel!
     
     override func viewDidLoad() {

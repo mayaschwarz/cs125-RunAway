@@ -104,19 +104,19 @@ class History : UIViewController, UITableViewDelegate, UITableViewDataSource
         print(userRunHistory)
         
         //set up greeting
-        var greeting="Hello "
+        var greeting="Hello, "
         greeting+=self.currentUser?["firstname"] as! String
         username.text=greeting
         
         //runs
-        runsCompleted.text = String(format: "%d  completed", self.currentUser?["totalRuns"] as! Int)
+        runsCompleted.text = String(format: "%d runs completed", self.currentUser?["totalRuns"] as! Int)
         
         //time
         let seconds = self.currentUser?["totalTime"] as! TimeInterval
-        timeCompleted.text = String(format: "%.1f  seconds", seconds)
+        timeCompleted.text = String(format: "%.1f  seconds total", seconds)
         
         //distance
-        distCompleted.text = String(format: "%.2f  miles", self.currentUser?["totalMiles"] as! Double)
+        distCompleted.text = String(format: "%.2f  miles run", self.currentUser?["totalMiles"] as! Double)
     }
 
     @IBAction func logout(_ sender: Any) {

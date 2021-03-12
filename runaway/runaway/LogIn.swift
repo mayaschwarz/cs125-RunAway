@@ -12,6 +12,8 @@ import Parse
 import Alamofire
 import AuthenticationServices
 
+// Parts of the login/sign up functionality is borrowed from https://www.back4app.com/docs/ios/swift-login-tutorial
+
 class LogIn: UIViewController, ASWebAuthenticationPresentationContextProviding {
     func presentationAnchor(for session: ASWebAuthenticationSession) -> ASPresentationAnchor {
         return self.view.window ?? ASPresentationAnchor()
@@ -40,12 +42,8 @@ class LogIn: UIViewController, ASWebAuthenticationPresentationContextProviding {
     }
     
     func loadHomeScreen(){
-        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        //let Home = storyBoard.instantiateViewController(withIdentifier: "Home") as! Home
         let tab_control=storyboard?.instantiateViewController(identifier: "myTabBar") as! myTabBar
         self.present(tab_control, animated: true, completion:nil)
-
-        //self.present(myTabBar, animated: true, completion: nil)
 
     }
 
@@ -63,7 +61,9 @@ class LogIn: UIViewController, ASWebAuthenticationPresentationContextProviding {
             }
         }
     }
-
+    
+    // displays an error message if login info is incorrect
+    
     func displayErrorMessage(message:String) {
         let alertView = UIAlertController(title: "Error!", message: message, preferredStyle: .alert)
         let OKAction = UIAlertAction(title: "OK", style: .default) { (action:UIAlertAction) in

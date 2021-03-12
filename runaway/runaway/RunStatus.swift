@@ -20,8 +20,9 @@ class RunStatus: UIViewController, CLLocationManagerDelegate {
     var elapsedTime = 0.0
     var breaks = 0
     var (minutes,seconds,frac)=(0,0,0)
-    let LocationManager = CLLocationManager()
     var parentPage:String!
+    // present current weather to the user during their run
+    let LocationManager = CLLocationManager()
     
     @IBOutlet weak var temperature: UILabel!
     @IBOutlet weak var fracLabel: UILabel!
@@ -40,7 +41,7 @@ class RunStatus: UIViewController, CLLocationManagerDelegate {
         timeLabel.font = UIFont.monospacedDigitSystemFont(ofSize: 90, weight: UIFont.Weight.regular)
         fracLabel.font = UIFont.monospacedDigitSystemFont(ofSize: 90, weight: UIFont.Weight.regular)
         // update time every 0.01 seconds using the update timer function
-        timer = Timer.scheduledTimer(timeInterval: 0.02, target: self, selector: #selector(UpdateTimer), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 0.017, target: self, selector: #selector(UpdateTimer), userInfo: nil, repeats: true)
         timeLabel.text = String(counter)
         
     }
@@ -84,11 +85,11 @@ class RunStatus: UIViewController, CLLocationManagerDelegate {
         task.resume()
     
     }
-        
+    
+    // Stop the timer and switch to post-run survey page
+    
     @IBAction func stopTimer(_ sender: AnyObject) {
-        //stop the timer and switch to post survey page
         timer.invalidate()
-        print(self.breaks)
         let endTime = NSDate()
         self.elapsedTime = endTime.timeIntervalSince(self.startTime as Date)
         
@@ -96,8 +97,9 @@ class RunStatus: UIViewController, CLLocationManagerDelegate {
        
     }
     
+    // Send data from this page to post survey page to calculate score
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        //send data from this page to post survey page to calculate score
         let vc = segue.destination as! PostRunSurvey
         vc.breaks = self.breaks
         vc.totaltime = self.elapsedTime
@@ -110,43 +112,47 @@ class RunStatus: UIViewController, CLLocationManagerDelegate {
     //update time and format for user display
     
     @objc func UpdateTimer() {
-        frac+=1
+        frac += 1
         if frac > 60 {
-            seconds+=1
-            frac=0
+            seconds += 1
+            frac = 0
         }
         
-        if seconds==60{
-            minutes+=1
-            seconds=0
+        if seconds == 60{
+            minutes += 1
+            seconds = 0
         }
         
         let secstr = seconds > 9 ? "\(seconds)" : "0\(seconds)"
         let minstr = minutes > 9 ? "\(minutes)" : "0\(minutes)"
 
-        timeLabel.text="\(minstr) : \(secstr) : "
-        fracLabel.text="\(frac)"
-     
+        timeLabel.text = "\(minstr) : \(secstr) : "
+        fracLabel.text = "\(frac)"
+        if frac < 10 {
+            fracLabel.text = "0\(frac)"
+        } else {
+            fracLabel.text = "\(frac)"
+        }
     }
     
-    // functionality to pause timer for break
+    // Functionality to pause timer for break
     
     @IBAction func PauseTimer(_ sender: Any) {
-        //each time user pauses the timer, it counts as a break
+        // each time user pauses the timer, it counts as a break
         timer.invalidate()
         breaks+=1
         
-        //enable resume button so user can continue after the break
+        // enable resume button so user can continue after the break
         self.resumeButton.isHidden = false
         self.pauseButton.isHidden = true
         
     }
     
-    // functionality to restart/resume timer after runner takes a break
+    // Functionality to restart/resume timer after runner takes a break
     
     @IBAction func ResumeTimer(_ sender: Any) {
-        //restart timer from where it was stopped
-        self.timer = Timer.scheduledTimer(timeInterval: 0.02, target: self, selector: #selector(RunStatus.UpdateTimer), userInfo: nil, repeats: true)
+        // Restart timer from where it was stopped
+        self.timer = Timer.scheduledTimer(timeInterval: 0.017, target: self, selector: #selector(RunStatus.UpdateTimer), userInfo: nil, repeats: true)
         self.pauseButton.isHidden = false
         self.resumeButton.isHidden = true
 

@@ -12,6 +12,8 @@ import Parse
 import Alamofire
 import AuthenticationServices
 
+// Parts of the login/sign up functionality is borrowed from https://www.back4app.com/docs/ios/swift-login-tutorial
+
 class SignUp: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, ASWebAuthenticationPresentationContextProviding {
     func presentationAnchor(for session: ASWebAuthenticationSession) -> ASPresentationAnchor {
         return self.view.window ?? ASPresentationAnchor()

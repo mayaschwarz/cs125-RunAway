@@ -75,12 +75,6 @@ class History : UIViewController, UITableViewDelegate, UITableViewDataSource
     
     
     
-//    override func viewDidAppear(_ animated: Bool) {
-//        super.viewDidAppear(animated)
-//        updateUIComponents()
-//    }
-    
-    
     func getRunHistory(){
         userRunHistory = []
         let list = self.currentUser?["listOfRuns"] as! [PFObject]
@@ -92,7 +86,6 @@ class History : UIViewController, UITableViewDelegate, UITableViewDataSource
                     print("Error: Could not find run in database.")
                 }
                 else {
-//                    print(run!)
                     self.userRunHistory.append(run!)
                     self.userRunHistory.sort { (run1, run2) -> Bool in
                         let d1 = run1["startTimeStamp"] as! Date

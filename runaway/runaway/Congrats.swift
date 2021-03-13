@@ -41,29 +41,8 @@ class Congrats: UIViewController {
     }
     
     @IBAction func returnHome(_ sender: Any) {
-        
-        
-        self.navigationController?.popToRootViewController(animated: true)
-        print("return to home page ")
 
-        /*if self.parentPage != "home"{
-            // reset and update runs on start run page
-            let resetStartRun = self.navigationController?.topViewController as! StartRun
-            resetStartRun.distanceSlider.setValue(0.0, animated: false)
-            resetStartRun.distanceSliderValueChanged(resetStartRun.distanceSlider)
-            resetStartRun.distanceSliderValueChosen(resetStartRun.distanceSlider)
-            print("back to run page")
-          
-            
-        }
-        else{
-            //update suggested route on home page to account for this run
-            print("return to home page ")
-            let resetHome = self.navigationController?.topViewController as! Home
-           
-        }*/
-       
-        
+        self.navigationController?.popToRootViewController(animated: true)
     }
     
     

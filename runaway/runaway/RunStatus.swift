@@ -25,6 +25,7 @@ class RunStatus: UIViewController, CLLocationManagerDelegate {
     let LocationManager = CLLocationManager()
     
     @IBOutlet weak var temperature: UILabel!
+    // separate 00:00 (time) from :00 (frac) to avoid jostling numbers
     @IBOutlet weak var fracLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var stopButton: UIButton!
@@ -41,6 +42,7 @@ class RunStatus: UIViewController, CLLocationManagerDelegate {
         timeLabel.font = UIFont.monospacedDigitSystemFont(ofSize: 90, weight: UIFont.Weight.regular)
         fracLabel.font = UIFont.monospacedDigitSystemFont(ofSize: 90, weight: UIFont.Weight.regular)
         // update time every 0.01 seconds using the update timer function
+        // 0.017 because Swift's Timer() function is not meant to be 100% accurate, and we found that updating at this speed is the closest to an actual millisecond, measured by the apple stopwatch app
         timer = Timer.scheduledTimer(timeInterval: 0.017, target: self, selector: #selector(UpdateTimer), userInfo: nil, repeats: true)
         timeLabel.text = String(counter)
         
@@ -140,7 +142,7 @@ class RunStatus: UIViewController, CLLocationManagerDelegate {
     @IBAction func PauseTimer(_ sender: Any) {
         // each time user pauses the timer, it counts as a break
         timer.invalidate()
-        breaks+=1
+        breaks += 1
         
         // enable resume button so user can continue after the break
         self.resumeButton.isHidden = false

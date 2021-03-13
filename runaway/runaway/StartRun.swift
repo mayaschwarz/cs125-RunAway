@@ -45,7 +45,8 @@ class StartRun: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
     var currIndex = 0
     let LocationManager = CLLocationManager()
     var currentLocation: CLLocation?
-    var routesSegments: [Segments] = [] //array of routes
+    // array of routes
+    var routesSegments: [Segments] = []
     var routesSegmentIds: [Int] = []
     var filteredRouteSegments: [Segments] = []
     var userDifficulty = 0
@@ -55,7 +56,6 @@ class StartRun: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
     var routePopularity = [String : Int]()
     
 
-        
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -127,42 +127,9 @@ class StartRun: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
                                 self.updateOldRouteUIComponents()
                             }
                         })
-//                        let route = object["route"] as? PFObject
-//                        do {
-//                            try route!.fetchIfNeeded()
-//                        } catch _ {
-//                           print("There was an error ):")
-//                        }
-//                        self.upperErrorLabel.isHidden = true
-//                        self.oldMap.isHidden = false
-//                        self.oldNextButton.isHidden = false
-//                        self.oldRouteNameLabel.isHidden = false
-//                        self.oldRouteDistanceLabel.isHidden = false
-//
-//                        // append each route to oldRoutes array in correct order
-//                        let stravaID = route!["stravaDataId"] as! Int
-//                        let sourceLat = route!["startLat"] as! Double
-//                        let sourceLng = route!["startLng"] as! Double
-//                        let destLat = route!["endLat"] as! Double
-//                        let destLong = route!["endLng"] as! Double
-//                        let name = route!["routeName"] as! String
-//                        let distance = route!["distance"] as! Double
-//                        let totalRuns = route!["totalRuns"] as! Int
-//                        let difficulty = route!["difficultyTier"] as! Int
-//                        let ratings = route!["ratingByTier"] as! [Double]
-//
-//                        let routeObj = Route(objectId: "", stravaDataId: stravaID, routeName: name, startLat: sourceLat, startLng: sourceLng, endLat: destLat, endLng: destLong, distance: distance, totalRuns: totalRuns, difficultyTier: difficulty, ratingByTier: ratings)
-//
-//                        self.oldRoutes.append(routeObj)
                         
                     }
-//                    self.oldPrevButton.isHidden = true
-//                    if(self.oldRoutes.count==1){
-//                        self.oldPrevButton.isHidden = true
-//                        self.oldNextButton.isHidden = true
-//                    }
-//                    else{ self.oldNextButton.isHidden = false}
-//                    self.displayOldRoutes()
+
                 }
               
                 }
@@ -261,16 +228,6 @@ class StartRun: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
     
     
     @IBAction func nextOldRoute(_ sender: Any) {
-        //next button for upper map
-//        if((currIndexOldMap+1)<=(self.oldRoutes.count-1)){
-//            currIndexOldMap = currIndexOldMap+1
-//             oldPrevButton.isHidden = false
-//         }
-//         if(currIndexOldMap==(self.oldRoutes.count-1)){
-//             oldNextButton.isHidden = true
-//         }
-//         oldMap.removeOverlays(oldMap.overlays)
-//         displayOldRoutes()
         
         // Decrement OldRouteIndex
         if(currIndexOldMap<(self.oldRoutes.count-1)){
@@ -281,16 +238,6 @@ class StartRun: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
     
     
     @IBAction func prevOldRoute(_ sender: Any) {
-        //prev button for upper map
-//        if(currIndexOldMap>0){
-//             currIndexOldMap = currIndexOldMap-1
-//             oldNextButton.isHidden = false
-//         }
-//         if(currIndexOldMap==0){
-//             oldPrevButton.isHidden = true
-//         }
-//         oldMap.removeOverlays(oldMap.overlays)
-//         displayOldRoutes()
         
         // Increment OldRouteIndex
         if(currIndexOldMap>0){
@@ -470,7 +417,6 @@ class StartRun: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
             }
         }
         else {
-            //self.userDifficulty==6
             return (climbCat-6) * -1
         }
         

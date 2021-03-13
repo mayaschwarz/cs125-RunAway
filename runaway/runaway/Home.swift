@@ -54,7 +54,6 @@ class Home: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        print("in location manager.....")
         if !locations.isEmpty, Home.currentLocation==nil{
             Home.currentLocation = locations.first
             LocationManager.stopUpdatingLocation()
@@ -250,50 +249,6 @@ class Home: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
                         }
                     })
                     
-//                    print("suggestons on home page enetered")
-//                    let object = objects[0]
-//                    let bestRoute = object["route"] as? PFObject
-//                    do {
-//                        try bestRoute!.fetchIfNeeded()
-//                    } catch _ {
-//                       print("There was an error ):")
-//                    }
-//                    //let objId = bestRoute!["objectId"] as! String
-//                    let stravaID = bestRoute!["stravaDataId"] as! Int
-//                    let sourceLat = bestRoute!["startLat"] as! Double
-//                    let sourceLng = bestRoute!["startLng"] as! Double
-//                    let destLat = bestRoute!["endLat"] as! Double
-//                    let destLong = bestRoute!["endLng"] as! Double
-//                    let name = bestRoute!["routeName"] as! String
-//                    let distance = bestRoute!["distance"] as! Double
-//                    let totalRuns = bestRoute!["totalRuns"] as! Int
-//                    let difficulty = bestRoute!["difficultyTier"] as! Int
-//                    let ratings = bestRoute!["ratingByTier"] as! [Double]
-//                    let sourceCoordinates = CLLocationCoordinate2D(latitude: sourceLat,longitude: sourceLng)
-//                    let destCoordinates = CLLocationCoordinate2D(latitude: destLat,longitude: destLong)
-//                    self.suggestedRoute["source"] = sourceCoordinates
-//                    self.suggestedRoute["dest"] = destCoordinates
-//                    //save routeName
-//
-//                    //save route
-//
-//                    //self.selectedRoute = Route(routeName: name, startLat: sourceLat, startLng: sourceLat, endLat: sourceLat, endLng: destLat, distance: distance)
-//
-//
-//                    self.selectedRoute = Route(objectId: "", stravaDataId: stravaID, routeName: name, startLat: sourceLat, startLng: sourceLng, endLat: destLat, endLng: destLong, distance: distance, totalRuns: totalRuns, difficultyTier: difficulty, ratingByTier: ratings)
-//                    //display name and distance labels
-//                    self.basisLabel.text = "Based on previous performances"
-//                    self.suggestedRouteNameLabel.isHidden = false
-//                    self.suggestedRouteDistanceLabel.isHidden = false
-//                    self.suggestedRouteNameLabel.text = name
-//                    self.suggestedRouteDistanceLabel.text = String(
-//                        format: "%.2f miles", distance / 1000 * 0.621371)
-//
-//                    self.startRunBtn.isHidden = false
-//
-//
-//                    // display retrived route on map
-//                    self.displayRoutes()
                 }
                 
                 
@@ -308,7 +263,6 @@ class Home: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
         
         PFUser.logOutInBackground(block: { (error) in
         if error == nil {
-            print("logging out..")
             self.tabBarController?.dismiss(animated: true, completion: nil)
         }})
     }
